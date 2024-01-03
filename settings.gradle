@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Elektronika"
 include ':app'
+include ':bouquet'
