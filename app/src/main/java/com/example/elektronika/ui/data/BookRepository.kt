@@ -7,11 +7,11 @@ object BookRepository {
         listOf(
             Book(id = 1,
                 title = "SIGNALLAR VA TIZIMLAR HAQIDA UMUMIY TUSHUNCHA",
-                assetId = R.raw.lecture1
+                assetId = R.raw.lecture_1
             ),
             Book(id = 2,
                 title = "UZLUKSIZ SIGNALLARNING MATEMATIK IFODALARI",
-                assetId = R.raw.lecture23)
+                assetId = R.raw.lecture_2_3)
 
         )
 }
