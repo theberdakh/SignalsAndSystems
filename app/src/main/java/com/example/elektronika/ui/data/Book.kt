@@ -5,5 +5,6 @@ import androidx.annotation.RawRes
 data class Book(
     val id: Int,
     val title: String,
-    @RawRes val assetId: Int
+    @RawRes val assetId: Int,
+    val section: Category
 )

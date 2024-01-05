@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Elektronika</string>
+    <string name="lectures">Lekciyalar</string>
+    <string name="practicals">Ámeliyler</string>
 </resources>

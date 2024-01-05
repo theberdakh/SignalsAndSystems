@@ -13,7 +13,7 @@ class BouquetViewModel : ViewModel() {
     private val mStateFlow = MutableStateFlow<PdfReaderState?>(null)
     val stateFlow: StateFlow<PdfReaderState?> = mStateFlow
 
-    val switchState = mutableStateOf(false)
+    private val switchState = mutableStateOf(false)
 
     fun openSource(resourceType: ResourceType) {
         mStateFlow.tryEmit(

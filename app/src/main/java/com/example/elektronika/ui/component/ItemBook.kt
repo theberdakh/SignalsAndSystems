@@ -1,9 +1,7 @@
 package com.example.elektronika.ui.component
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -17,19 +15,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.elektronika.R
-import com.example.elektronika.ui.data.BookRepository
-import com.example.elektronika.ui.data.Category
+import com.example.elektronika.ui.data.Book
 import com.example.elektronika.ui.data.Section
-import com.example.elektronika.ui.theme.ElektronikaTheme
-import com.example.elektronika.ui.theme.Typography
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun ItemSection(
-    section: Section,
+fun ItemBook(
+    book: Book,
     onClick: () -> Unit
 ) {
 
@@ -44,30 +38,20 @@ fun ItemSection(
     ) {
         Column(modifier = Modifier.wrapContentHeight()){
             Image(
-                painter = painterResource(id = section.image),
-                contentDescription = "Image of section ${section.title}",
+                painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                contentDescription = "Image of book",
                 modifier = Modifier.fillMaxWidth())
             Text(
-                text = section.title,
+                text = book.title,
                 modifier = Modifier
                     .padding(
-                    start = 16.dp,
-                    end = 16.dp,
-                    top = 4.dp,
-                    bottom = 16.dp)
+                        start = 16.dp,
+                        end = 16.dp,
+                        top = 4.dp,
+                        bottom = 16.dp)
                     .fillMaxWidth(),
                 style = MaterialTheme.typography.body1,
                 textAlign = TextAlign.Center)
-
-        }
-    }
-}
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun PreviewItemSection() {
-    ElektronikaTheme {
-        ItemSection( Section(1, "Lekciyalar", R.drawable.ic_launcher_foreground, Category.LECTURE)) {
 
         }
     }

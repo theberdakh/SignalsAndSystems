@@ -5,5 +5,6 @@ import androidx.annotation.DrawableRes
 data class Section(
     val id: Int,
     val title: String,
-    @DrawableRes val image: Int
+    @DrawableRes val image: Int,
+    val category: Category
 )
