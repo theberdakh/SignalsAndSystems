@@ -5,7 +5,7 @@ import com.example.elektronika.R
 object SectionRepository {
 
     fun getHomeSections() = listOf(
-        Section(1, "Lekciyalar", R.drawable.ic_launcher_foreground),
-        Section(2, "Ámeliyler", R.drawable.ic_launcher_foreground)
+        Section(1, "Lekciyalar", R.drawable.lecturer, Category.LECTURE),
+        Section(2, "Ámeliyler", R.drawable.physics, Category.PRACTICAL)
     )
 }

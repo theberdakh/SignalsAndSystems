@@ -5,17 +5,21 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorScheme = darkColors(
     primary = Purple80,
     primaryVariant = PurpleGrey80,
-    secondary = Pink80
+    secondary = Pink80,
+    background = Color.DarkGray
 )
 
 private val LightColorScheme = lightColors(
-    primary = Purple40,
+    primary = StickerBlue,
     primaryVariant = PurpleGrey40,
-    secondary = Pink40
+    secondary = Pink40,
+    background = StickerBlueLight,
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -35,6 +39,18 @@ fun ElektronikaTheme(
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
+
+    val systemUiController  = rememberSystemUiController()
+    if (darkTheme){
+        systemUiController.setSystemBarsColor(
+            color = Color.Black
+        )
+    } else {
+        systemUiController.setSystemBarsColor(
+            color = StickerSystemBar
+        )
+    }
+
 
     val colors = if (darkTheme) {
         DarkColorScheme

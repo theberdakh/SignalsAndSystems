@@ -46,7 +46,11 @@ fun ItemSection(
             Image(
                 painter = painterResource(id = section.image),
                 contentDescription = "Image of section ${section.title}",
-                modifier = Modifier.fillMaxWidth())
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+
+            )
             Text(
                 text = section.title,
                 modifier = Modifier
@@ -67,7 +71,7 @@ fun ItemSection(
 @Composable
 fun PreviewItemSection() {
     ElektronikaTheme {
-        ItemSection( Section(1, "Lekciyalar", R.drawable.ic_launcher_foreground, Category.LECTURE)) {
+        ItemSection( Section(1, "Lekciyalar", R.drawable.lecturer, Category.LECTURE)) {
 
         }
     }
