@@ -1,6 +1,7 @@
 package com.example.elektronika
 
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -36,6 +37,7 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -46,6 +48,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.example.elektronika.ui.Navigation
 import com.example.elektronika.ui.component.HomeScreen
 import com.example.elektronika.ui.theme.ElektronikaTheme
 import com.theberdakh.bouquet.HorizontalPDFReader
@@ -57,6 +63,7 @@ import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     private val viewModel: BouquetViewModel by viewModels()
+    private lateinit var navController: NavHostController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,60 +84,67 @@ class MainActivity : ComponentActivity() {
         setContent {
             ElektronikaTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    val scaffoldState = rememberScaffoldState()
-                    val state =viewModel.stateFlow.collectAsState()
 
-                    
-                    Scaffold(
-                        topBar = {
-                            TopAppBar(title = { Text(text = stringResource(id = R.string.app_name)) })
-                        },
-                        scaffoldState = scaffoldState,
-                        floatingActionButton = {
-                            state.value?.file?.let {
-                                FloatingActionButton(
-                                    onClick = {
-                                        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
-                                    }
-                                ) {
-                                    Icon(
-                                        painter = painterResource(id = android.R.drawable.ic_menu_share),
-                                        contentDescription = "share"
-                                    )
-                                }
-                            }
-                        }
+                navController = rememberNavController()
 
-                    ) { innerPadding ->
-                        
-                        Box( modifier = Modifier.padding(innerPadding)){
-                            when(val actualState = state.value){
-                                null -> {
-                                    HomeScreen()
-                                }
-                                is VerticalPdfReaderState -> PDFView(
-                                    pdfState = actualState,
-                                    scaffoldState = scaffoldState 
-                                )
-                                is HorizontalPdfReaderState -> HPDFView(
-                                    pdfState = actualState,
-                                    scaffoldState = scaffoldState
-                                )
-                            }
-                        }
+                MainContent(navController)
 
 
-                    }
+
+
                 }
             }
         }
     }
 
     @Composable
+    private fun MainContent(navController: NavHostController) {
+
+        val currentBackStackEntry by navController.currentBackStackEntryAsState()
+
+
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colors.background
+        ) {
+            val scaffoldState = rememberScaffoldState()
+                // val state = viewModel.stateFlow.collectAsState()
+
+
+            Scaffold(
+                topBar = {
+                    TopAppBar(title = { Text(text = stringResource(id = R.string.app_name)) })
+                },
+                scaffoldState = scaffoldState,
+
+                ) { paddingValues ->
+
+                Box(Modifier.padding(paddingValues)) {
+                    Navigation(navController)
+                }
+
+
+                /* Box( modifier = Modifier.padding(innerPadding)){
+                     when(val actualState = state.value){
+                         null -> {
+                             HomeScreen()
+                         }
+                         is VerticalPdfReaderState -> PDFView(
+                             pdfState = actualState,
+                             scaffoldState = scaffoldState
+                         )
+                         is HorizontalPdfReaderState -> HPDFView(
+                             pdfState = actualState,
+                             scaffoldState = scaffoldState
+                         )
+                     }
+                 }*/
+
+
+            }
+    }
+
+  /*  @Composable
     fun SelectionView() {
         Column(modifier = Modifier.fillMaxSize()) {
 
@@ -143,7 +157,7 @@ class MainActivity : ComponentActivity() {
                 )
             }
         }
-    }
+    }*/
 
     @OptIn(ExperimentalMaterialApi::class)
     @Composable
