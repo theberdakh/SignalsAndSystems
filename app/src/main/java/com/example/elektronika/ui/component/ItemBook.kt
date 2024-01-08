@@ -2,8 +2,11 @@ package com.example.elektronika.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -36,11 +39,16 @@ fun ItemBook(
         backgroundColor = MaterialTheme.colors.surface,
         elevation = 4.dp
     ) {
-        Column(modifier = Modifier.wrapContentHeight()){
+        Row(
+            modifier = Modifier.wrapContentHeight()
+                .padding(16.dp)
+        ){
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                painter = painterResource(id = R.drawable.dictionary),
                 contentDescription = "Image of book",
-                modifier = Modifier.fillMaxWidth())
+                modifier = Modifier.wrapContentHeight()
+                    .width(100.dp)
+            )
             Text(
                 text = book.title,
                 modifier = Modifier
@@ -51,7 +59,7 @@ fun ItemBook(
                         bottom = 16.dp)
                     .fillMaxWidth(),
                 style = MaterialTheme.typography.body1,
-                textAlign = TextAlign.Center)
+                textAlign = TextAlign.Start)
 
         }
     }
