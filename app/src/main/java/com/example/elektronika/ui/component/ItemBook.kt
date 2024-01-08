@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.elektronika.R
 import com.example.elektronika.ui.data.Book
@@ -59,7 +60,10 @@ fun ItemBook(
                         bottom = 16.dp)
                     .fillMaxWidth(),
                 style = MaterialTheme.typography.body1,
-                textAlign = TextAlign.Start)
+                textAlign = TextAlign.Start,
+                maxLines = 4,
+                overflow = TextOverflow.Ellipsis
+            )
 
         }
     }
