@@ -39,7 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.elektronika.ui.Navigation
+import com.example.elektronika.ui.navigation.Navigation
 import com.example.elektronika.ui.theme.ElektronikaTheme
 import com.theberdakh.bouquet.HorizontalPDFReader
 import com.theberdakh.bouquet.HorizontalPdfReaderState

@@ -1,4 +1,4 @@
-package com.example.elektronika.ui
+package com.example.elektronika.ui.navigation
 
 import androidx.annotation.RawRes
 

@@ -1,4 +1,4 @@
-package com.example.elektronika.ui
+package com.example.elektronika.ui.navigation
 
 import android.util.Log
 import androidx.compose.runtime.Composable
@@ -13,8 +13,6 @@ import com.example.elektronika.ui.component.screen.HomeScreen
 import com.example.elektronika.ui.component.screen.PDFScreen
 import com.example.elektronika.ui.component.screen.SectionScreen
 import com.example.elektronika.ui.component.screen.VideoScreen
-import com.theberdakh.bouquet.ResourceType
-import com.theberdakh.bouquet.VerticalPdfReaderState
 
 @Composable
 fun Navigation(navController: NavHostController) {
