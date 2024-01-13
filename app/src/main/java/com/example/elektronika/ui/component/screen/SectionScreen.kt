@@ -31,7 +31,7 @@ fun SectionScreen(
         PRACTICALS -> BookRepository.getPracticals()
         VIDEOS -> VideoRepository.getSystemsAndSignalsVideos()
         DOCUMENTS -> BookRepository.getDocuments()
-        EXAM -> BookRepository.getDocuments()
+        EXAM -> BookRepository.getExamMaterials()
         else -> emptyList<Book>()
     }
 

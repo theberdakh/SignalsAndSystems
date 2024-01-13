@@ -82,11 +82,61 @@ object BookRepository {
 
         )
 
-    fun getPracticals() =
-        listOf<Book>()
+    fun getPracticals() = listOf(
+        Book(
+            id = 1,
+            title = "PERIODLÍ HÁM PERIODLÍ BOLMAǴAN SIGNALLARDÍŃ SPEKTORLARÍN ANALIZ ETIW",
+            assetId = R.raw.signal_practical_1,
+            section = Category.PRACTICAL
+        ),
+        Book(
+            id = 3,
+            title = "AMPLITUDA MODULYATORINI TADQIQ ETISH",
+            assetId = R.raw.signal_practical_3,
+            section = Category.PRACTICAL
+        ), Book(
+            id = 4,
+            title = "АMPLITUDA MODULYATSIYALI SIGNALLARNI DETEKTORLASH ",
+            assetId = R.raw.signal_practical_4,
+            section = Category.PRACTICAL
+        ),
+        Book(
+            id = 5,
+            title = "CHASTOTA MODULYATORI VA CHASTOTA DETEKTORINI TADQIQ ETISH ",
+            assetId = R.raw.signal_practical_1,
+            section = Category.PRACTICAL
+        ),
 
-    fun getDocuments() = listOf<Book>()
-    fun getExamMaterials() = listOf<Book>()
+        )
+
+    fun getDocuments() = listOf(
+        Book(
+            id = 1,
+            title = "Oqıw qollanba",
+            assetId = R.raw.signal_instruction,
+            section = Category.DOCUMENTS
+        ),
+        Book(
+            id = 2,
+            title = "SILLABUS",
+            assetId = R.raw.signal_syllabus,
+            section = Category.DOCUMENTS
+        ),
+        Book(
+            id = 3,
+            title = "BAHALAW KRITERIYASÍ",
+            assetId = R.raw.signal_assesment,
+            section = Category.DOCUMENTS
+        )
+    )
+    fun getExamMaterials() = listOf(
+        Book(
+            id = 1,
+            title = "Aralıq hám juwmaqlawshı baqlaw sorawlar bankı",
+            assetId = R.raw.signal_exam_questions,
+            section = Category.EXAM
+        )
+    )
 }
 
 enum class Category {

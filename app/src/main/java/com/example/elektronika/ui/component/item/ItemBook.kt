@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import com.example.elektronika.R
 import com.example.elektronika.ui.data.model.Book
 import com.example.elektronika.ui.data.repository.BookRepository
+import com.example.elektronika.ui.data.repository.Category
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -43,9 +44,17 @@ fun ItemBook(
             modifier = Modifier
                 .wrapContentHeight()
                 .padding(16.dp)
-        ){
+        ) {
             Image(
-                painter = painterResource(id = R.drawable.dictionary),
+                painter = painterResource(
+                    id = when (book.section) {
+                        Category.EXAM -> R.drawable.exam
+                        Category.PRACTICAL -> R.drawable.physics
+                        Category.DOCUMENTS -> R.drawable.folder
+                        Category.VIDEO -> R.drawable.video_lecture
+                        Category.LECTURE -> R.drawable.lecturer
+                    }
+                ),
                 contentDescription = "Image of book",
                 modifier = Modifier
                     .wrapContentHeight()
