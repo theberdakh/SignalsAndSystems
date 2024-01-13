@@ -69,14 +69,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             ElektronikaTheme {
                 // A surface container using the 'background' color from the theme
-
                 navController = rememberNavController()
-
                 MainContent(navController)
-
-
-
-
                 }
             }
         }
@@ -84,18 +78,13 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun MainContent(navController: NavHostController) {
-
         val currentBackStackEntry by navController.currentBackStackEntryAsState()
-
-
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
         ) {
             val scaffoldState = rememberScaffoldState()
                 // val state = viewModel.stateFlow.collectAsState()
-
-
             Scaffold(
                 topBar = {
                     TopAppBar(title = { Text(text = stringResource(id = R.string.app_name)) })
@@ -107,16 +96,13 @@ class MainActivity : ComponentActivity() {
                 Box(Modifier.padding(paddingValues)) {
                     Navigation(navController)
                 }
-
-
-
                 /* Box( modifier = Modifier.padding(innerPadding)){
                      when(val actualState = state.value){
                          null -> {
                              HomeScreen()
                          }
                          is VerticalPdfReaderState -> PDFView(
-                             pdfState = actualState,
+//                             pdfState = actualState,
                              scaffoldState = scaffoldState
                          )
                          is HorizontalPdfReaderState -> HPDFView(
@@ -125,8 +111,6 @@ class MainActivity : ComponentActivity() {
                          )
                      }
                  }*/
-
-
             }
     }
 

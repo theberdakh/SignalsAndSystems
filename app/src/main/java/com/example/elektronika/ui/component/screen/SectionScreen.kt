@@ -1,37 +1,54 @@
 package com.example.elektronika.ui.component.screen
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import com.example.elektronika.ui.DOCUMENTS
+import com.example.elektronika.ui.EXAM
+import com.example.elektronika.ui.LECTURES
+import com.example.elektronika.ui.PRACTICALS
 import com.example.elektronika.ui.Screen
-import com.example.elektronika.ui.component.ItemBook
-import com.example.elektronika.ui.data.BookRepository
+import com.example.elektronika.ui.VIDEOS
+import com.example.elektronika.ui.component.item.ItemBook
+import com.example.elektronika.ui.component.item.ItemVideo
+import com.example.elektronika.ui.data.model.Book
+import com.example.elektronika.ui.data.repository.BookRepository
+import com.example.elektronika.ui.data.model.Video
+import com.example.elektronika.ui.data.repository.VideoRepository
 
 
 @Composable
-fun SectionScreen(navController: NavHostController) {
+fun SectionScreen(
+    navController: NavHostController,
+    category: String
+) {
 
-
-
-/*
-    val books = when(section.category){
-        Category.LECTURE -> BookRepository.getLectures()
-        Category.PRACTICAL -> BookRepository.getPracticals()
+    val items = when(category){
+        LECTURES -> BookRepository.getLectures()
+        PRACTICALS -> BookRepository.getPracticals()
+        VIDEOS -> VideoRepository.getSystemsAndSignalsVideos()
+        DOCUMENTS -> BookRepository.getDocuments()
+        EXAM -> BookRepository.getDocuments()
+        else -> emptyList<Book>()
     }
-    val title = when(section.category){
-        Category.LECTURE -> stringResource(R.string.lectures)
-        Category.PRACTICAL -> stringResource(R.string.practicals)
-    }*/
+
+    Log.d("SectionScreen", items.toString())
+
+
 
     Column {
-
-
         LazyColumn(){
-            items(BookRepository.getLectures()){book ->
-                ItemBook(book = book) {
-                    navController.navigate(Screen.PDFScreen.sendAsset(book.assetId))
+            items(items){item ->
+                when(item){
+                    is Book -> ItemBook(book = item) {
+                        navController.navigate(Screen.PDFScreen.sendAsset(item.assetId))
+                    }
+                    is Video -> ItemVideo(video = item){
+                        navController.navigate(Screen.VideoScreen.sendUrl(item.url))
+                    }
                 }
             }
         }

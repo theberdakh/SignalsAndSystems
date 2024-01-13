@@ -41,7 +41,7 @@ fun PDFScreen(
                 .fillMaxSize()
                 .background(color = Color.Gray)
         )
-      /*  Column(
+        /*Column(
             modifier = Modifier.fillMaxWidth()
         ) {
             LinearProgressIndicator(

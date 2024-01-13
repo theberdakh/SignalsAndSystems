@@ -2,4 +2,5 @@
     <string name="app_name">Elektronika</string>
     <string name="lectures">Lekciyalar</string>
     <string name="practicals">Ámeliyler</string>
+    <string name="null_video_adress"><![CDATA[https://www.youtube.com/watch?v=cRcSiALBfZI&list=PLmu_y3-DV2_kpP8oX_Uug0IbgH2T4hRPL]]></string>
 </resources>

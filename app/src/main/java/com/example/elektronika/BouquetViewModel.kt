@@ -29,5 +29,4 @@ class BouquetViewModel : ViewModel() {
         mStateFlow.tryEmit(null)
     }
 
-
 }
