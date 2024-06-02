@@ -47,6 +47,7 @@ import com.theberdakh.bouquet.VerticalPDFReader
 import com.theberdakh.bouquet.VerticalPdfReaderState
 
 class MainActivity : ComponentActivity() {
+    //
     private val viewModel: BouquetViewModel by viewModels()
     private lateinit var navController: NavHostController
 

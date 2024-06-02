@@ -105,6 +105,57 @@ object BookRepository {
             title = "CHASTOTA MODULYATORI VA CHASTOTA DETEKTORINI TADQIQ ETISH ",
             assetId = R.raw.signal_practical_1,
             section = Category.PRACTICAL
+        ),  Book(
+            id = 6,
+            title = "SINXRON DETEKTORINI TADQIQ ETISH",
+            assetId = R.raw.signal_practical_6,
+            section = Category.PRACTICAL
+        ),  Book(
+            id = 7,
+            title = "BIR YO‘LAKLI (POLOSALI) VA BALANSLI MODULYATORLARINI TADQIQ ETISH.",
+            assetId = R.raw.signal_practical_7,
+            section = Category.PRACTICAL
+        ),Book(
+            id = 8,
+            title = "UZLUKSIZ SIGNALLARNI VAQT BO‘YICHA DISKRETLASH",
+            assetId = R.raw.signal_practical_8,
+            section = Category.PRACTICAL
+        ),Book(
+            id = 9,
+            title = "DISKRET MODULYATSIYALANGAN SIGNALLARNI TADQIQ ETISH",
+            assetId = R.raw.signal_practical_9,
+            section = Category.PRACTICAL
+        ),Book(
+            id = 10,
+            title = "TASODIFIY JARAYONLARNING TAQSIMOT QONUNLARINI TADQIQ ETISH",
+            assetId = R.raw.signal_practical_10,
+            section = Category.PRACTICAL
+        ),Book(
+            id = 11,
+            title = "OPTIMAL KOGERENT DEMODULYATORNI TADQIQ ETISH",
+            assetId = R.raw.signal_practical_11,
+            section = Category.PRACTICAL
+        ),Book(
+            id = 12,
+            title = "IKKILIK SIGNALLARNI OPTIMAL KORRELYATSION DEMODULYATORNI TADQIQ ETISH",
+            assetId = R.raw.signal_practical_12,
+            section = Category.PRACTICAL
+        ),
+        Book(
+            id = 13,
+            title = "IKKILIK AM SIGNALLARNI OPTIMAL KOGERENT DEMODULYATORNI TADQIQ ETISH",
+            assetId = R.raw.signal_practical_13,
+            section = Category.PRACTICAL
+        ),Book(
+            id = 14,
+            title = "IKKILIK CHM SIGNALINI OPTIMAL KOGERENT DEMODULYATORNI TADQIQ ETISH",
+            assetId = R.raw.signal_practical_14,
+            section = Category.PRACTICAL
+        ),Book(
+            id = 15,
+            title = "IKKILIK FM SIGNALLARNI OPTIMAL KOGERENT DEMODULYATORNI TADQIQ ETISH",
+            assetId = R.raw.signal_practical_15,
+            section = Category.PRACTICAL
         ),
 
         )
@@ -134,6 +185,12 @@ object BookRepository {
             id = 1,
             title = "Aralıq hám juwmaqlawshı baqlaw sorawlar bankı",
             assetId = R.raw.signal_exam_questions,
+            section = Category.EXAM
+        ),
+        Book(
+            id = 2,
+            title = "Sistema hám signallardı qayta islew - Test (qaraqalpaq tilinde)",
+            assetId = R.raw.signal_test,
             section = Category.EXAM
         )
     )

@@ -26,7 +26,7 @@ fun HomeScreen(navController: NavHostController) {
     Column {
 
         LazyVerticalGrid(
-            columns = GridCells.Fixed(3),
+            columns = GridCells.Fixed(2),
         ){
             items(sections){section ->
                 ItemSection(section = section) {
